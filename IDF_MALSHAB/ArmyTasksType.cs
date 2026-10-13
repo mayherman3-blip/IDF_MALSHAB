@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IDF_MALSHAB
 {
-    public class ArmyTaskType:BaseEntity
+    public class ArmyTasksType:BaseEntity
     {
         private string taskType;
 

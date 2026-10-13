@@ -1,10 +1,19 @@
-﻿namespace Test
+﻿using IDF_MALSHAB;
+using VIEW_MODEL_IDFF;
+
+namespace Test
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            SubjectsTypeDB cdb = new();
+            SubjectsTypeList cList = cdb.SelectAll();
+            foreach (SubjectsType c in cList)
+                Console.WriteLine(c.SubjectName);
+            
+
+
         }
     }
 }

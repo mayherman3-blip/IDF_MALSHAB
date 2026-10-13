@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IDF_MALSHAB\IDF_MALSHAB.csproj" />
+    <ProjectReference Include="..\VIEW_MODEL_IDFF\VIEW_MODEL_IDFF.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -29,6 +29,15 @@ namespace VIEW_MODEL_IDFF
             base.CreateModel(entity);
             return entity;
         }
+        public static RecordsType SelectById(int id)
+        {
+            RecordsTypeDB db = new RecordsTypeDB();
+            List<RecordsType> list = db.SelectAll();
+
+            RecordsType recordstype_ = list.Find(item => item.Id == id);
+
+            return recordstype_;
+        }
 
     }
 }

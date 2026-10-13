@@ -31,5 +31,15 @@ namespace VIEW_MODEL_IDFF
             return entity;
         }
 
+        public static Cities SelectById(int id)
+        {
+            CitiesDB db = new CitiesDB();
+            List<Cities> list = db.SelectAll();
+
+            Cities city_ = list.Find(item => item.Id == id);
+
+            return city_;
+        }
+
     }
 }

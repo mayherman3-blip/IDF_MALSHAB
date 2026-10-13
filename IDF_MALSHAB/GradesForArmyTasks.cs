@@ -8,11 +8,11 @@ namespace IDF_MALSHAB
 {
     public class GradesForArmyTasks:BaseEntity
     {
-        private ArmyTaskType armyTaskType;
+        private ArmyTasksType armyTasksType;
         private int grade;
         private Malshab malshabID;
 
-        public ArmyTaskType ArmyTaskType { get => armyTaskType; set => armyTaskType = value; }
+        public ArmyTasksType ArmyTasksType { get => armyTasksType; set => armyTasksType = value; }
         public int Grade { get => grade; set => grade = value; }
         public Malshab MalshabID { get => malshabID; set => malshabID = value; }
     }
