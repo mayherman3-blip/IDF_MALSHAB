@@ -11,6 +11,11 @@ namespace Test
             SubjectsTypeList cList = cdb.SelectAll();
             foreach (SubjectsType c in cList)
                 Console.WriteLine(c.SubjectName);
+
+            PersonDB pdb = new();
+            PersonList pList = pdb.SelectAll();
+            foreach (Person p in pList)
+                Console.WriteLine(p.PrivateName);
             
 
 

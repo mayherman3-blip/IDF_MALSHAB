@@ -16,6 +16,7 @@ namespace IDF_MALSHAB
         private DateTime birthDate;
         private Cities livingCity;
         private string pass;
+        private string streetNumber;
 
         public string PersonID { get => personID; set => personID = value; }
         public string PrivateName { get => privateName; set => privateName = value; }
@@ -25,5 +26,6 @@ namespace IDF_MALSHAB
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
         public Cities LivingCity { get => livingCity; set => livingCity = value; }
         public string Pass { get => pass; set => pass = value; }
+        public string StreetNumber { get => streetNumber; set => streetNumber = value; }
     }
 }

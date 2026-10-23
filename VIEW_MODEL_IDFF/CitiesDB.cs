@@ -37,7 +37,6 @@ namespace VIEW_MODEL_IDFF
             List<Cities> list = db.SelectAll();
 
             Cities city_ = list.Find(item => item.Id == id);
-
             return city_;
         }
 
