@@ -37,7 +37,9 @@ namespace VIEW_MODEL_IDFF
         {
             return new Person();
         }
+
         private static PersonList list = new PersonList();
+
         public static Person SelectById(int id)
         {
             PersonDB db = new PersonDB();
