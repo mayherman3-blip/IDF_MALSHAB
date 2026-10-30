@@ -11,7 +11,8 @@ namespace VIEW_MODEL_IDFF
     {
         public ParentList SelectAll()
         {
-            command.CommandText = $"SELECT * SELECT        Person.ID, Person.PersonID, Person.PrivateName, Person.FamilyName, Person.email, Person.PhoneNumber, Person.BirthDate, Person.LivingCity, Person.[Street&Number], Person.Pass\r\nFROM            (Parent INNER JOIN\r\n                         Person ON Parent.ID = Person.ID)";
+            command.CommandText = $"SELECT  Person.ID, Person.PersonID, Person.PrivateName, Person.FamilyName, Person.email, Person.PhoneNumber, Person.BirthDate, Person.LivingCity, Person.[Street&Number], Person.Pass FROM  (Parent INNER JOIN "+
+                                   " Person ON Parent.ID = Person.ID)";
             ParentList parent = new ParentList(base.Select());
             return parent;
         }

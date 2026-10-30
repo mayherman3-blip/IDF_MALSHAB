@@ -29,11 +29,11 @@ namespace VIEW_MODEL_IDFF
             base.CreateModel(entity);
             return entity;
         }
-
+        public static List<StatusType> list;
         public static StatusType SelectById(int id)
         {
             StatusTypeDB db = new StatusTypeDB();
-            List<StatusType> list = db.SelectAll();
+            list = db.SelectAll();
 
             StatusType statustype_ = list.Find(item => item.Id == id);
 

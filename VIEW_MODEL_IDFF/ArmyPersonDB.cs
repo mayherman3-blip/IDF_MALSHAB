@@ -11,7 +11,7 @@ namespace VIEW_MODEL_IDFF
     {
         public ArmyPersonList SelectAll()
         {
-            command.CommandText = $"SELECT * FROM SELECT        Person.PersonID, Person.ID, Person.PrivateName, Person.FamilyName, Person.email, Person.PhoneNumber, Person.BirthDate, Person.LivingCity, Person.[Street&Number], Person.Pass\r\nFROM            (Person INNER JOIN\r\n                         ArmyPerson ON Person.ID = ArmyPerson.ID)";
+            command.CommandText = $"SELECT      Person.PersonID, Person.ID, Person.PrivateName, Person.FamilyName, Person.email, Person.PhoneNumber, Person.BirthDate, Person.LivingCity, Person.[Street&Number], Person.Pass\r\nFROM            (Person INNER JOIN\r\n                         ArmyPerson ON Person.ID = ArmyPerson.ID)";
             ArmyPersonList armyPerson = new ArmyPersonList(base.Select());
             return armyPerson;
         }

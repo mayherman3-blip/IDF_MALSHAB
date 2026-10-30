@@ -15,5 +15,8 @@ namespace IDF_MALSHAB
         public ArmyTasksType ArmyTasksType { get => armyTasksType; set => armyTasksType = value; }
         public int Grade { get => grade; set => grade = value; }
         public Malshab MalshabID { get => malshabID; set => malshabID = value; }
+
+        
+
     }
 }

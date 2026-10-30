@@ -22,7 +22,7 @@ namespace VIEW_MODEL_IDFF
             s.Points = Convert.ToInt32(reader["Points"].ToString());
             s.FinalGrade = Convert.ToInt32(reader["FinalGrade"].ToString());
             s.MalshabID = MalshabDB.SelectById((int)reader["MalshabID"]);
-            s.SubjectsType = SubjectsTypeDB.SelectById((int)reader["SubjectsType"]);
+            s.SubjectsType = SubjectsTypeDB.SelectById((int)reader["SubjectType"]);
             base.CreateModel(entity);
             return s;
         }

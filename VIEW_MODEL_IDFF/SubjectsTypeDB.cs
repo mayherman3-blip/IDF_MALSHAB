@@ -30,11 +30,11 @@ namespace VIEW_MODEL_IDFF
             base.CreateModel(entity);
             return entity;
         }
-
+        public static List<SubjectsType> list;
         public static SubjectsType SelectById(int id)
         {
             SubjectsTypeDB db = new SubjectsTypeDB();
-            List<SubjectsType> list = db.SelectAll();
+            list = db.SelectAll();
 
             SubjectsType subjectstype_ = list.Find(item => item.Id == id);
 
