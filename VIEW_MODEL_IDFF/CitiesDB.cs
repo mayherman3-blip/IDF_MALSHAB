@@ -40,5 +40,26 @@ namespace VIEW_MODEL_IDFF
             return city_;
         }
 
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            Cities c = entity as Cities;
+            if(c!=null)
+            {
+                string sqlStr = $"UPDATE Cities SET CityName=@name WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@name", c.CityName));
+                command.Parameters.Add(new OleDbParameter("@id", c.Id));
+            }
+        }
     }
 }

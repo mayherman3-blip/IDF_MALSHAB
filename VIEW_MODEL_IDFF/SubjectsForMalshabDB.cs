@@ -1,6 +1,7 @@
 ﻿using IDF_MALSHAB;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,21 @@ namespace VIEW_MODEL_IDFF
 
             SubjectsForMalshab subjectsForMalshab = list.Find(item => item.Id == id);
             return subjectsForMalshab;
+        }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
         }
     }
 }

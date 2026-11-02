@@ -96,14 +96,29 @@ namespace Test
 
 
 
-            SubjectsForMalshabDB sdb = new SubjectsForMalshabDB();
-            SubjectsForMalshabList sList = sdb.SelectAll();
-            foreach (SubjectsForMalshab s in sList)
-            {
-                Console.WriteLine(s.FinalGrade);
-            }
+            //SubjectsForMalshabDB sdb = new SubjectsForMalshabDB();
+            //SubjectsForMalshabList sList = sdb.SelectAll();
+            //foreach (SubjectsForMalshab s in sList)
+            //{
+            //    Console.WriteLine(s.FinalGrade);
+            //}
 
-            Console.WriteLine(SubjectsForMalshabDB.SelectById(1));
+            //Console.WriteLine(SubjectsForMalshabDB.SelectById(1));
+
+
+
+
+            CitiesDB cdb = new();
+            CitiesList cList = cdb.SelectAll();
+            foreach (Cities c in cList)
+                Console.WriteLine(c.CityName);
+            Cities cityToUpdate = cList[0];
+            cityToUpdate.CityName += "אאא";
+            cdb.Update(cityToUpdate);
+            int x = cdb.SaveChanges();
+            Console.WriteLine($"{x}rows were updated");
+            foreach (Cities c in cList)
+                Console.WriteLine(c.CityName);
         }
     }
 }

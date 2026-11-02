@@ -38,5 +38,27 @@ namespace VIEW_MODEL_IDFF
 
             return armytaskstype_;
         }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            ArmyTasksType a = entity as ArmyTasksType;
+            if (a != null)
+            {
+                string sqlStr = $"UPDATE Cities SET TaskType=@tasktype WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@tasktype", a.TaskType));
+                command.Parameters.Add(new OleDbParameter("@id", a.Id));
+            }
+        }
     }
 }
