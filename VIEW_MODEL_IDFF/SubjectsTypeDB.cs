@@ -53,7 +53,14 @@ namespace VIEW_MODEL_IDFF
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            SubjectsType s = entity as SubjectsType;
+            if (s != null)
+            {
+                string sqlStr = $"UPDATE SubjectsType SET SubjectName=@s WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@s", s.SubjectName));
+                command.Parameters.Add(new OleDbParameter("@id", s.Id));
+            }
         }
     }
 }

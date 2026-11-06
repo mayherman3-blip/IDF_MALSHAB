@@ -56,7 +56,17 @@ namespace VIEW_MODEL_IDFF
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            SubjectsForMalshab s = entity as SubjectsForMalshab;
+            if (s != null)
+            {
+                string sqlStr = $"UPDATE SubjectsForMalshab SET SubjectType=@st, Points=@p, FinalGrade=@fg, MalshabID=mid WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@st", s.SubjectsType.Id));
+                command.Parameters.Add(new OleDbParameter("@p", s.Points));
+                command.Parameters.Add(new OleDbParameter("@fg", s.FinalGrade));
+                command.Parameters.Add(new OleDbParameter("@mid", s.MalshabID.Id));
+                command.Parameters.Add(new OleDbParameter("@id", s.Id));
+            }
         }
     }
 }

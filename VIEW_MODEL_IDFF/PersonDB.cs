@@ -61,7 +61,22 @@ namespace VIEW_MODEL_IDFF
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Person p = entity as Person;
+            if (p != null)
+            {
+                string sqlStr = $"UPDATE Person SET PersonID=@pid, PrivateName=@pn, FamilyName=@fn, email=@e, PhoneNumber=@phn, BirthDate=@bid, LivingCity=@lc, Street&Number=@stn, Pass=@pa WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@pid", p.PersonID));
+                command.Parameters.Add(new OleDbParameter("@pn", p.PrivateName));
+                command.Parameters.Add(new OleDbParameter("@fn", p.FamilyName));
+                command.Parameters.Add(new OleDbParameter("@e", p.Email));
+                command.Parameters.Add(new OleDbParameter("@phn", p.PhoneNumber));
+                command.Parameters.Add(new OleDbParameter("@bid", p.BirthDate));
+                command.Parameters.Add(new OleDbParameter("@lc", p.LivingCity.Id));
+                command.Parameters.Add(new OleDbParameter("@stn", p.StreetNumber));
+                command.Parameters.Add(new OleDbParameter("@pa", p.Pass));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }

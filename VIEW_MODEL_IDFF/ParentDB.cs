@@ -1,6 +1,7 @@
 ﻿using IDF_MALSHAB;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,5 +41,38 @@ namespace VIEW_MODEL_IDFF
             Parent parent = list.Find(item => item.Id == id);
             return parent;
         }
+
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            Parent p = entity as Parent;
+            if (p != null)
+            {
+                string sqlStr = $"UPDATE Parent SET ID = @id WHERE ID = @id"; // לא עושה כלום:)
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
+        }
+
+        public override void Update(BaseEntity entity)
+        {
+            Parent parent = entity as Parent;
+            if (parent != null)
+            {
+                updated.Add(new ChangeEntity(this.CreateUpdatedSQL, entity));
+                updated.Add(new ChangeEntity(base.CreateUpdatedSQL, entity));
+            }
+        }
+
     }
 }

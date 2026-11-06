@@ -52,7 +52,14 @@ namespace VIEW_MODEL_IDFF
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            StatusType s = entity as StatusType;
+            if (s != null)                
+            {
+                string sqlStr = $"UPDATE StatusType SET Status=@s WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@s", s.Status));
+                command.Parameters.Add(new OleDbParameter("@id", s.Id));
+            }
         }
     }
 }

@@ -54,7 +54,7 @@ namespace VIEW_MODEL_IDFF
             ArmyTasksType a = entity as ArmyTasksType;
             if (a != null)
             {
-                string sqlStr = $"UPDATE Cities SET TaskType=@tasktype WHERE ID=@id";
+                string sqlStr = $"UPDATE ArmyTasksType SET TaskType=@tasktype WHERE ID=@id";
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@tasktype", a.TaskType));
                 command.Parameters.Add(new OleDbParameter("@id", a.Id));

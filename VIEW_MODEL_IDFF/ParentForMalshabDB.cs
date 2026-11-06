@@ -55,7 +55,15 @@ namespace VIEW_MODEL_IDFF
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            ParentForMalshab p = entity as ParentForMalshab;
+            if (p != null)
+            {
+                string sqlStr = $"UPDATE ParentForMalshab SET Malshab=@ma, Parent=@p WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@ma", p.Malshab.Id));
+                command.Parameters.Add(new OleDbParameter("@p", p.Parent.Id));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }

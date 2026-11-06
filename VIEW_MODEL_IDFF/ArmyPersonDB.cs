@@ -1,6 +1,7 @@
 ﻿using IDF_MALSHAB;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,39 @@ namespace VIEW_MODEL_IDFF
 
             ArmyPerson armyPerson = list.Find(item => item.Id == id);
             return armyPerson;
+        }
+
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            ArmyPerson a = entity as ArmyPerson;
+            if (a != null)
+            {
+                string sqlStr = $"UPDATE ArmyPerson SET ID=@id WHERE ID=@id";
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@id", a.Id));
+            }
+        }
+
+
+        public override void Update(BaseEntity entity)
+        {
+            ArmyPerson a = entity as ArmyPerson;
+            if (a != null)
+            {
+                updated.Add(new ChangeEntity(this.CreateUpdatedSQL, entity));
+                updated.Add(new ChangeEntity(base.CreateUpdatedSQL, entity));
+            }
         }
     }
 }
